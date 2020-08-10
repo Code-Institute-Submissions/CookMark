@@ -1,6 +1,6 @@
 import os
 import ssl
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -18,6 +18,12 @@ app.config["MONGO_URI"] = MONGO_URI
 mongo = PyMongo(app)
 
 @app.route('/')
+def index():
+  if 'username' in session:
+    return 'Welcome' + session['username']
+
+  return render_template('index.html')
+
 @app.route('/get_collections')
 def get_collections():
     return render_template("collections.html", collections=mongo.db.collections.find())
