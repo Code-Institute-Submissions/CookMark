@@ -12,9 +12,12 @@ app = Flask(__name__)
 
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
 MONGO_URI = os.environ.get('MONGO_URI')
+secret_key = os.environ.get('secret_key')
 
 app.config["MONGO_DBNAME"] = MONGO_DBNAME
 app.config["MONGO_URI"] = MONGO_URI
+app.config["secret_key"] = secret_key
+app.secret_key = secret_key
 
 mongo = PyMongo(app)
 
@@ -24,6 +27,18 @@ def index():
         return 'Welcome ' + session['username']
 
     return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'name' : request.form['username']})
+
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+    return 'Invalid username/password combination'
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
