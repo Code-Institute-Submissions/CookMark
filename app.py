@@ -3,7 +3,6 @@ import ssl
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import bcrypt
 from os import path
 if path.exists("env.py"):
   import env
@@ -34,7 +33,7 @@ def login():
     login_user = users.find_one({'name' : request.form['username']})
 
     if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+        if request.form['pass'] == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('index'))
 
@@ -47,8 +46,8 @@ def register():
         existing_user = users.find_one({'name' : request.form['username']})
 
         if existing_user is None:
-            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            pw = request.form['pass']
+            users.insert({'name' : request.form['username'], 'password' : pw})
             session['username'] = request.form['username']
             return redirect(url_for('index'))
         
