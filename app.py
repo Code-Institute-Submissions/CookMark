@@ -32,6 +32,7 @@ def get_collections():
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
+# Add st_mtime to the url, overriding the old one and fixing url issue for static files.
 @app.context_processor
 def override_url_for():
     return dict(url_for=dated_url_for)
@@ -44,7 +45,7 @@ def dated_url_for(endpoint, **values):
                                  endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
-        
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=5000,
