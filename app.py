@@ -28,6 +28,10 @@ def index():
 def get_collections():
     return render_template("collections.html", collections=mongo.db.collections.find())
 
+@app.route('/get_recipes')
+def get_recipes():
+    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
     port=int(os.environ.get('PORT')),
