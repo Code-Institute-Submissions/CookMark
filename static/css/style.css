@@ -1,0 +1,30 @@
+:root {
+  background: #A4DAA9;
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*-------------------------------Text*/
+h1, h2, h3 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+li {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #4B4B4B;
+}
+
+li span {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #4B4B4B;
+}
+
+/*-------------------------------Nav*/
+nav {
+  background-color: #A4DAA9;
+}
+/*# sourceMappingURL=style.css.map */
