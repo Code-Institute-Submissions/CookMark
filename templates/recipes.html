@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="col s6">
+        <h2>Here are your recipes: </h2>
+    </div>
+    <div class="col s6">
+        <ul class="collapsible">
+            {% for recipe in recipes %}
+            <li>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+                {{recipe.recipe_name}} - {{recipe.recipe_time}} 
+                <br>Yields: {{recipe.recipe_yield}} , {{recipe.recipe_difficulty}}
+              </div>
+              <div class="collapsible-body">
+                  <span>{{recipe.recipe_ingredients}}</span>
+                  <span>{{recipe.recipe_directions}}</span>
+                  <span>{{recipe.note}}</span>
+              </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
