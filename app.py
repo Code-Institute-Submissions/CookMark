@@ -34,7 +34,13 @@ def get_recipes():
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html")
+    return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find())
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('index'))
 
 # Add st_mtime to the url, overriding the old one and fixing url issue for static files.
 @app.context_processor
