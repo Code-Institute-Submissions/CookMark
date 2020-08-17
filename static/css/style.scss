@@ -42,3 +42,12 @@ li span {
 .centerHeader {
     vertical-align: middle;
 }
+.cardSection .row {
+    margin-right: none;
+}
+.cardSection .row .col {
+    padding-left: .75rem;
+}
+.row .col{
+    padding: none;
+}
