@@ -1,6 +1,5 @@
 :root {
     background: #A4DAA9;
-    font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
 }
 /*-------------------------------Text*/
@@ -21,10 +20,12 @@ li span {
     font-weight: 400;
     color: #4B4B4B;
 }
+.card .card-title {
+    text-transform: capitalize;
+}
 /*-------------------------------Nav*/
 .nav-wrapper {
     background-color: #A4DAA9;
-    padding: 0.5rem 1rem;
     font-size: 2.4rem;
 }
 /*-------------------------------Materialize content*/
@@ -36,5 +37,8 @@ li span {
     background-color: #fff;
 }
 #pageTitle {
+    vertical-align: middle;
+}
+.centerHeader {
     vertical-align: middle;
 }
