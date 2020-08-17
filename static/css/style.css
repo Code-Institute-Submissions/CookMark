@@ -4,14 +4,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.container {
-  background-color: #A4DAA9;
-}
-
 /*-------------------------------Text*/
 h1, h2, h3 {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
+  color: #fff;
 }
 
 li {
@@ -26,11 +23,17 @@ li span {
   font-size: 1.8rem;
   font-weight: 400;
   color: #4B4B4B;
-  text-transform: capitalize;
 }
 
 /*-------------------------------Nav*/
 .nav-wrapper {
   background-color: #A4DAA9;
+  padding: 0.5rem 1rem;
+  font-size: 2.4rem;
+}
+
+/*-------------------------------Materialize content*/
+.collapsible {
+  background: white;
 }
 /*# sourceMappingURL=style.css.map */
