@@ -6,13 +6,13 @@
 
 /*-------------------------------Text*/
 h1, h2, h3 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 700;
   color: #fff;
 }
 
 li {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
   color: #4B4B4B;
@@ -35,5 +35,14 @@ li span {
 /*-------------------------------Materialize content*/
 .collapsible {
   background: white;
+}
+
+/*-------------------------------Utilities*/
+#addColumn {
+  background-color: #fff;
+}
+
+#pageTitle {
+  vertical-align: middle;
 }
 /*# sourceMappingURL=style.css.map */
