@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 @app.route('/get_collections')
 def get_collections():
@@ -31,6 +31,10 @@ def get_collections():
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
+
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("addrecipe.html")
 
 # Add st_mtime to the url, overriding the old one and fixing url issue for static files.
 @app.context_processor
