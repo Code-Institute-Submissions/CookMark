@@ -28,10 +28,6 @@ def index():
 def get_collections():
     return render_template("collections.html", collections=mongo.db.collections.find())
 
-@app.route('/get_recipes')
-def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
-
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find())
