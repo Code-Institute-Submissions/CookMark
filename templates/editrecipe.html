@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Edit recipe{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col s4" id="pageTitle">
+        <h1>Add<br>Recipe</h1>
+    </div>
+    <form action="{{url_for('insert_recipe')}}" method="POST">
+        <div class="col s8" id="addColumn">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <label for="recipe_name">Recipe name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="recipe_notes" name="recipe_notes" class="materialize-textarea"></textarea>
+                    <label for="recipe_notes">Notes or Description</label>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select id="difficulty" name="recipe_difficulty">
+                        <option value="" disabled selected>Choose recipe difficulty</option>
+                        {% for difficulty in difficulties %}
+                            <option value="{{difficulty.recipe_difficulty}}">{{difficulty.recipe_difficulty}}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Add
+                    <i class="material-icons right">playlist_add</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
