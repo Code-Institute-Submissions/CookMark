@@ -45,6 +45,7 @@ def edit_recipe(recipe_id):
     all_difficulties = mongo.db.difficulty.find()
     return render_template('editrecipe.html', recipe = the_recipe, difficulties = all_difficulties)
 
+# Updates the data in mongodb from the edit recipe form
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
@@ -54,6 +55,12 @@ def update_recipe(recipe_id):
         'recipe_notes':request.form.get('recipe_notes'),
         'recipe_difficulty':request.form.get('recipe_difficulty')
     })
+    return redirect(url_for('index'))
+
+# Deletes the recipe from mongodb when clicking the delete button in index route
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     return redirect(url_for('index'))
 
 # Add st_mtime to the url, overriding the old one and fixing url issue for static files.
