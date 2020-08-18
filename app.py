@@ -45,6 +45,17 @@ def edit_recipe(recipe_id):
     all_difficulties = mongo.db.difficulty.find()
     return render_template('editrecipe.html', recipe = the_recipe, difficulties = all_difficulties)
 
+@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update({"_id": ObjectId(recipe_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'recipe_notes':request.form.get('recipe_notes'),
+        'recipe_difficulty':request.form.get('recipe_difficulty')
+    })
+    return redirect(url_for('index'))
+
 # Add st_mtime to the url, overriding the old one and fixing url issue for static files.
 @app.context_processor
 def override_url_for():
