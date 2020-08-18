@@ -5,11 +5,11 @@
     <div class="col s4" id="pageTitle">
         <h1>Add<br>Recipe</h1>
     </div>
-    <form action="{{url_for('insert_recipe')}}" method="POST">
+    <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST">
         <div class="col s8" id="addColumn">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
@@ -24,13 +24,17 @@
                     <select id="difficulty" name="recipe_difficulty">
                         <option value="" disabled selected>Choose recipe difficulty</option>
                         {% for difficulty in difficulties %}
-                            <option value="{{difficulty.recipe_difficulty}}">{{difficulty.recipe_difficulty}}</option>
+                            {% if difficulty.recipe_difficulty == recipe.recipe_difficulty %}
+                                <option value="{{difficulty.recipe_difficulty}}" selected>{{difficulty.recipe_difficulty}}</option>
+                            {% else %}
+                                <option value="{{difficulty.recipe_difficulty}}" selected>{{difficulty.recipe_difficulty}}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit">Add
+                <button class="btn waves-effect waves-light" type="submit">Edit
                     <i class="material-icons right">playlist_add</i>
                 </button>
             </div>
