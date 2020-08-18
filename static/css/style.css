@@ -39,6 +39,10 @@ li span {
   background: white;
 }
 
+.btn-floating.halfway-fab {
+  bottom: 10px;
+}
+
 /*-------------------------------Utilities*/
 #addColumn {
   background-color: #fff;
@@ -58,9 +62,5 @@ li span {
 
 .cardSection .row .col {
   padding-left: .75rem;
-}
-
-.row .col {
-  padding: none;
 }
 /*# sourceMappingURL=style.css.map */
