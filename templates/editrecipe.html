@@ -2,11 +2,11 @@
 {% block title %}Edit recipe{% endblock %}
 {% block content %}
 <div class="row">
-    <div class="col s4" id="pageTitle">
+    <div class="col s12 l5 centerHeader">
         <h1>Add<br>Recipe</h1>
     </div>
     <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST">
-        <div class="col s8" id="addColumn">
+        <div class="col s12 l7" id="addColumn">
             <div class="row">
                 <div class="input-field col s6">
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{recipe.recipe_name}}">
@@ -20,7 +20,7 @@
                     </div>
             </div>
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s7 l4">
                     <select id="difficulty" name="recipe_difficulty">
                         <option value="" disabled selected>Choose recipe difficulty</option>
                         {% for difficulty in difficulties %}
