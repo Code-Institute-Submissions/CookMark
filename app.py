@@ -38,6 +38,13 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
+# Create recipe_id with ObjectId and pass it into an edit recipe route
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_difficulties = mongo.db.difficulty.find()
+    return render_template('editrecipe.html', recipe = the_recipe, difficulties = all_difficulties)
+
 # Add st_mtime to the url, overriding the old one and fixing url issue for static files.
 @app.context_processor
 def override_url_for():
