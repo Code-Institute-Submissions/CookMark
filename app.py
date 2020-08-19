@@ -53,14 +53,17 @@ def update_recipe(recipe_id):
     {
         'recipe_name':request.form.get('recipe_name'),
         'recipe_notes':request.form.get('recipe_notes'),
-        'recipe_difficulty':request.form.get('recipe_difficulty')
+        'recipe_difficulty':request.form.get('recipe_difficulty'),
+        'recipe_ingredients':request.form.get('recipe_ingredients'),
+        'recipe_directions':request.form.get('recipe_directions'),
+        'recipe_url':request.form.get('recipe_url')
     })
     return redirect(url_for('index'))
 
 # Deletes the recipe from mongodb when clicking the delete button in index route
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
