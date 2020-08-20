@@ -38,6 +38,11 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
+@app.route('/get_recipe/<recipe_id>')
+def get_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('getrecipe.html', recipe = the_recipe)
+
 # Create recipe_id with ObjectId and pass it into an edit recipe route
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
