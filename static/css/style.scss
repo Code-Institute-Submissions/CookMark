@@ -23,6 +23,10 @@ li span {
 .card .card-title {
     text-transform: capitalize;
 }
+.helperSpan span{
+    opacity: 0.75;
+    font-size: .8rem;
+}
 /*-------------------------------Nav*/
 .nav-wrapper {
     background-color: #A4DAA9;
@@ -38,6 +42,7 @@ li span {
 /*-------------------------------Utilities*/
 #addColumn {
     background-color: #fff;
+    padding-left: 2rem;
 }
 .centerHeader {
     vertical-align: middle;
