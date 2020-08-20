@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Add recipe{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col s12 l5 centerHeader">
+        <h1>{{recipe.recipe_name}}</h1>
+    </div>
+    <div class="col s12 l7" id="addColumn">
+        <div class="row">
+            <h2>Notes:</h2>
+            <p>{{recipe.recipe_notes}}</p>
+        </div>
+        <div class="row">
+            <div class="col s7 m4">
+                {{recipe.recipe_difficulty}}
+            </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="recipe_ingredients" name="recipe_ingredients" type="text" class="materialize-textarea" required></textarea>
+                <label for="recipe_ingredients">Ingredients and measurements</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="recipe_directions" name="recipe_directions" type="text" class="materialize-textarea" placeholder="1: Boil the broccoli." required></textarea>
+                <label for="recipe_directions">Directions</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="recipe_url" name="recipe_url" type="text" class="validate">
+                <label for="recipe_url">Recipe Url</label>
+                <div class="helperSpan">
+                    <span>Did you find the recipe on another website? Link it here to give credit to the creator.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
