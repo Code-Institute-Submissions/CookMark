@@ -14,6 +14,18 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s7 l5">
+                    <select id="recipe_yield" name="recipe_yield">
+                        <option value="" disabled selected>Yield(h)</option>
+                        {% for yield in yields %}
+                            {% for i in range(10) %}
+                                <option value="{{yield.yield_numbers[i]}}">{{yield.yield_numbers[i]}}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
                     <textarea id="recipe_notes" name="recipe_notes" class="materialize-textarea"></textarea>
                     <label for="recipe_notes">Notes or Description</label>
@@ -27,7 +39,7 @@
                             <option value="{{difficulty.recipe_difficulty}}">{{difficulty.recipe_difficulty}}</option>
                         {% endfor %}
                     </select>
-                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
