@@ -26,7 +26,8 @@ def index():
 
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find(), yields=mongo.db.yields.find())
+    return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find(),
+     yields=mongo.db.yields.find(), hours=mongo.db.hours.find(), mins=mongo.db.mins.find())
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():

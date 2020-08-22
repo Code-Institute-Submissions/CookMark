@@ -14,15 +14,37 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s7 l5">
+                <div class="input-field col s3 l2">
                     <select id="recipe_yield" name="recipe_yield">
-                        <option value="" disabled selected>Yield(h)</option>
+                        <option value="" disabled selected>Yield</option>
                         {% for yield in yields %}
                             {% for i in range(10) %}
                                 <option value="{{yield.yield_numbers[i]}}">{{yield.yield_numbers[i]}}</option>
                             {% endfor %}
                         {% endfor %}
                     </select>
+                </div>
+                <div class="input-field col s2">
+                    <select id="recipe_time_hour" name="recipe_time_hour">
+                        <option value="" disabled selected>Hour</option>
+                        {% for hour in hours %}
+                            {% for i in range(11) %}
+                                <option value="{{hour.cook_time_hour[i]}}">{{hour.cook_time_hour[i]}}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                    <p>h</p>
+                </div>
+                <div class="input-field col s2">
+                    <select id="recipe_time_min" name="recipe_time_min">
+                        <option value="" disabled selected>Min</option>
+                        {% for min in mins %}
+                            {% for i in range(11) %}
+                                <option value="{{min.cook_time_min[i]}}">{{min.cook_time_min[i]}}</option>
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                    <p>min</p>
                 </div>
             </div>
             <div class="row">
