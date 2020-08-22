@@ -24,10 +24,6 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html", recipes=mongo.db.recipes.find())
 
-@app.route('/get_collections')
-def get_collections():
-    return render_template("collections.html", collections=mongo.db.collections.find())
-
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find())
