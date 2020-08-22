@@ -16,7 +16,7 @@ h5 {
   letter-spacing: 0.01rem;
 }
 
-p {
+p, label {
   color: white;
 }
 
@@ -76,8 +76,9 @@ li span {
 
 /*-------------------------------Utilities*/
 #addColumn {
-  background-color: #fff;
+  background-color: #85be8b;
   padding-left: 2rem;
+  color: white;
 }
 
 #recipeColumn {
@@ -101,5 +102,10 @@ li span {
 
 .cardSection .row .col {
   padding-left: .75rem;
+}
+
+form {
+  background-color: #70ac76;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

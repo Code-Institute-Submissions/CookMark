@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5 {
 h5 {
     letter-spacing: 0.01rem;
 }
-p {
+p, label {
     color: white;
 }
 li {
@@ -65,8 +65,9 @@ li span {
 }
 /*-------------------------------Utilities*/
 #addColumn {
-    background-color: #fff;
+    background-color: $lightgreen;
     padding-left: 2rem;
+    color: white;
 }
 #recipeColumn {
     background-color: $lightgreen;
@@ -85,4 +86,8 @@ li span {
 }
 .cardSection .row .col {
     padding-left: .75rem;
+}
+form {
+    background-color: $darkgreen;
+    color: white;
 }
