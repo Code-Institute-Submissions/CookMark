@@ -45,7 +45,10 @@ def get_recipe(recipe_id):
 def edit_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_difficulties = mongo.db.difficulty.find()
-    return render_template('editrecipe.html', recipe = the_recipe, difficulties = all_difficulties)
+    all_yields = mongo.db.yields.find()
+    all_hours = mongo.db.hours.find()
+    all_mins = mongo.db.mins.find()
+    return render_template('editrecipe.html', recipe = the_recipe, difficulties = all_difficulties, yields= all_yields, hours = all_hours, mins = all_mins)
 
 # Updates the data in mongodb from the edit recipe form
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])

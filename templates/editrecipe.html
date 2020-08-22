@@ -14,8 +14,54 @@
                 </div>
             </div>
             <div class="row">
+                <div class="input-field col s3 l2">
+                    <select id="recipe_yield" name="recipe_yield">
+                        <option value="" disabled selected>Yield</option>
+                        {% for yield in yields %}
+                            {% for i in range(10) %}
+                                {% if yield.yield_numbers[i] == recipe.recipe_yield %}
+                                    <option value="{{yield.yield_numbers[i]}}" selected>{{yield.yield_numbers[i]}}</option>
+                                {% else %}
+                                    <option value="{{yield.yield_numbers[i]}}">{{yield.yield_numbers[i]}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-field col s2">
+                    <select id="recipe_time_hour" name="recipe_time_hour">
+                        <option value="" disabled selected>Hour</option>
+                        {% for hour in hours %}
+                            {% for i in range(11) %}
+                                {% if hour.cook_time_hour[i] == recipe.recipe_time_hour %}
+                                    <option value="{{hour.cook_time_hour[i]}}" selected>{{hour.cook_time_hour[i]}}</option>
+                                {% else %}
+                                    <option value="{{hour.cook_time_hour[i]}}">{{hour.cook_time_hour[i]}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                    <p>h</p>
+                </div>
+                <div class="input-field col s2">
+                    <select id="recipe_time_min" name="recipe_time_min">
+                        <option value="" disabled selected>Min</option>
+                        {% for min in mins %}
+                            {% for i in range(11) %}
+                                {% if min.cook_time_min[i] == recipe.recipe_time_min %}
+                                    <option value="{{min.cook_time_min[i]}}" selected>{{min.cook_time_min[i]}}</option>
+                                {% else %}
+                                    <option value="{{min.cook_time_min[i]}}">{{min.cook_time_min[i]}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </select>
+                    <p>min</p>
+                </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="recipe_notes" name="recipe_notes" class="materialize-textarea"></textarea>
+                    <textarea id="recipe_notes" name="recipe_notes" class="materialize-textarea" value="{{recipe.recipe_notes}}"></textarea>
                     <label for="recipe_notes">Notes or Description</label>
                 </div>
             </div>
@@ -27,7 +73,7 @@
                             {% if difficulty.recipe_difficulty == recipe.recipe_difficulty %}
                                 <option value="{{difficulty.recipe_difficulty}}" selected>{{difficulty.recipe_difficulty}}</option>
                             {% else %}
-                                <option value="{{difficulty.recipe_difficulty}}" selected>{{difficulty.recipe_difficulty}}</option>
+                                <option value="{{difficulty.recipe_difficulty}}">{{difficulty.recipe_difficulty}}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
