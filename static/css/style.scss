@@ -1,23 +1,24 @@
 /*-------------------------------Sass variables*/
 $lightgreen: #85be8b;
 $darkgreen: rgb(112, 172, 118);
-
+$primary-color: white;
 :root {
     background: white;
     font-family: 'Roboto', sans-serif;
+    color: $primary-color;
 }
 /*-------------------------------Text*/
 h1, h2, h3, h4, h5 {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    color: white;
+    color: $primary-color;
     text-transform: capitalize;
 }
 h5 {
     letter-spacing: 0.01rem;
 }
 p, label {
-    color: white;
+    color: $primary-color;
 }
 li {
     font-family: 'Raleway', sans-serif;
@@ -48,8 +49,11 @@ li span {
     font-weight: 700;
 }
 #recipeUrl {
-    color: white;
+    color: $primary-color;
     text-decoration: none;
+}
+textarea, option, input {
+    color: $primary-color;
 }
 /*-------------------------------Nav*/
 .nav-wrapper {
@@ -58,16 +62,22 @@ li span {
 }
 /*-------------------------------Materialize content*/
 .collapsible {
-    background: white;
+    background: $primary-color;
 }
 .btn-floating.halfway-fab {
     bottom: 10px;
+}
+.input-field > label {
+    color: $primary-color;
+}
+.card-content, .card-content p {
+    color: #888888;
 }
 /*-------------------------------Utilities*/
 #addColumn {
     background-color: $lightgreen;
     padding-left: 2rem;
-    color: white;
+    color: $primary-color;
 }
 #recipeColumn {
     background-color: $lightgreen;
