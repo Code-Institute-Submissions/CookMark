@@ -121,4 +121,9 @@ form {
   background-color: #70ac76;
   color: white;
 }
+
+.imageContainer object {
+  padding: 0 2rem;
+  width: 500px;
+}
 /*# sourceMappingURL=style.css.map */
