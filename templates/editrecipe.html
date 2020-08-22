@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
     <div class="col s12 l5 centerHeader">
-        <h1>Add<br>Recipe</h1>
+        <h1>Edit<br>Recipe</h1>
     </div>
     <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST">
         <div class="col s12 l7" id="addColumn">
@@ -81,19 +81,19 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="recipe_ingredients" name="recipe_ingredients" type="text" class="materialize-textarea" required></textarea>
+                    <textarea id="recipe_ingredients" name="recipe_ingredients" type="text" class="materialize-textarea" value="{{recipe.recipe_ingredients}}" required></textarea>
                     <label for="recipe_ingredients">Ingredients and measurements</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="recipe_directions" name="recipe_directions" type="text" class="materialize-textarea" placeholder="1: Boil the broccoli." required></textarea>
+                    <textarea id="recipe_directions" name="recipe_directions" type="text" class="materialize-textarea" placeholder="1: Boil the broccoli." value="{{recipe.recipe_directions}}" required></textarea>
                     <label for="recipe_directions">Directions</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="recipe_url" name="recipe_url" type="text" class="validate">
+                    <input id="recipe_url" name="recipe_url" type="text" class="validate" value="{{recipe.recipe_url}}">
                     <label for="recipe_url">Recipe Url</label>
                     <div class="helperSpan">
                         <span class="helperSpan">Did you find the recipe on another website? Link it here to give credit to the creator.</span>
