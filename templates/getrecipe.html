@@ -7,9 +7,16 @@
             <h1>{{recipe.recipe_name}}</h1>
         </div>
         <div class="row">
-            <div class="col s6">
-                <h5>Difficulty</h5>
-                <p>{{recipe.recipe_difficulty}}</p>
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{recipe.recipe_photourl}}">
+                    </div>
+                    <div class="card-content">
+                        <p>Yields: <strong>{{recipe.recipe_yield}}</strong> - Cook time: <strong>{{recipe.recipe_time_hour}} h {{recipe.recipe_time_min}} min</strong></p><br>
+                        <p>Level of difficulty: <strong>{{recipe.recipe_difficulty}}</strong></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -34,7 +41,7 @@
         </div>
         <div class="row">
             <div class="col s8">
-                <h3>Url</h3>
+                <h5>Url</h5>
                 <a target="_blank" id="recipeUrl" href="{{recipe.recipe_url}}">{{recipe.recipe_url}}</a>
             </div>
         </div>
