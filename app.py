@@ -58,10 +58,14 @@ def update_recipe(recipe_id):
     {
         'recipe_name':request.form.get('recipe_name'),
         'recipe_notes':request.form.get('recipe_notes'),
+        'recipe_yield':request.form.get('recipe_yield'),
+        'recipe_time_hour':request.form.get('recipe_time_hour'),
+        'recipe_time_min':request.form.get('recipe_time_min'),
         'recipe_difficulty':request.form.get('recipe_difficulty'),
         'recipe_ingredients':request.form.get('recipe_ingredients'),
         'recipe_directions':request.form.get('recipe_directions'),
-        'recipe_url':request.form.get('recipe_url')
+        'recipe_url':request.form.get('recipe_url'),
+        'recipe_photourl':request.form.get('recipe_photourl')
     })
     return redirect(url_for('index'))
 
