@@ -1,12 +1,23 @@
+/*-------------------------------Sass variables*/
+$lightgreen: #85be8b;
+$darkgreen: rgb(112, 172, 118);
+
 :root {
-    background: #A4DAA9;
+    background: white;
     font-family: 'Roboto', sans-serif;
 }
 /*-------------------------------Text*/
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    color: #fff;
+    color: white;
+    text-transform: capitalize;
+}
+h5 {
+    letter-spacing: 0.01rem;
+}
+p {
+    color: white;
 }
 li {
     font-family: 'Raleway', sans-serif;
@@ -27,9 +38,22 @@ li span {
     opacity: 0.75;
     font-size: .8rem;
 }
+.centerHeader h1, .centerHeader h5{
+    color: $lightgreen;
+    padding: 0 2rem;
+}
+.centerHeader p {
+    color: #888888;
+    padding: 0 2rem;
+    font-weight: 700;
+}
+#recipeUrl {
+    color: white;
+    text-decoration: none;
+}
 /*-------------------------------Nav*/
 .nav-wrapper {
-    background-color: #A4DAA9;
+    background-color: $darkgreen;
     font-size: 2.4rem;
 }
 /*-------------------------------Materialize content*/
@@ -44,9 +68,17 @@ li span {
     background-color: #fff;
     padding-left: 2rem;
 }
+#recipeColumn {
+    background-color: $lightgreen;
+    min-height: 100vh;
+    padding-left: 2rem;
+}
 .centerHeader {
     vertical-align: middle;
     margin-top: 10%;
+}
+.cardSection {
+    background: $lightgreen;
 }
 .cardSection .row {
     margin-right: none;
