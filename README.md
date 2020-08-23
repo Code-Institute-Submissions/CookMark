@@ -150,27 +150,44 @@ The project was deployed on Heroku. Version control was done with Git and GitHub
 
 The project was deployed on Heroku and the CookMark Heroku app is connected to GitHub as deployment method. It was initially supposed to be deployed using the Heroku CLI push, however it didn't work for me atleast after hours of trying.
 
-1. 
+Creating virtual environment:
+1. Created a directory where the flask app was supposed to be
+2. Changed directory to the flask app, C:\Users\Karolina\Documents\Programming projects\cookmark
+3. In the Command Prompt: `>py -m venv env, hit enter`
+4. Then: >env\Scripts\activate, hit enter
+5. Installed flask by: `>pip install flask`
+6. Created app.py in the directory
+7. In the Command Prompt: `>set FLASK_APP=app.py`
+In Vs Code:
+8. Opened up app.py in VS Code and wrote "from flask import Flask" at the top of the page
+9. In the line below, wrote `app = Flask(__name__)`
+10. Created an app route
+11. 
 
 #### Locally
-For running the project locally, you'll needed to have Git and the Heroku CLI pre-installed.
+For running the project locally, you'll needed to have Git, the Heroku CLI pre-installed and a text handling program such as VS Code.
 
 For windows:
 [Cloning a repository using the command line](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+You'll also need to create a virtual environment, as written out in the section above.
+
 1. On GitHub, navigate to the main page of the repository.
 2. Above the list of files, click (download symbol) Code.
 3. To clone the repository using HTTPS, under "Clone with HTTPS", click (copy symbol). To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click (copy symbol).
 4. Open Git Bash.
 5. Change the current working directory to the location where you want the cloned directory.
 6. Type git clone, and then paste the URL you copied earlier.
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+`$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 7. Press Enter to create your local clone.
+8. Follow the virtual env setup.
+9. Create env.py
+10. In env.py, write **import os** at the top.
+Then os.environ["MONGO_DBNAME"] = 'YOUR_MONGO_DB_PROJECT_NAME'
+and after, os.environ["MONGO_URI"] = 'YOUR_SRV_CODE_IN_MONGO_DB'
+11. In the terminal, `flask run`
 
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-> Cloning into `Spoon-Knife`...
-> remote: Counting objects: 10, done.
-> remote: Compressing objects: 100% (8/8), done.
-> remove: Total 10 (delta 1), reused 10 (delta 1)
-> Unpacking objects: 100% (10/10), done.
-
-
+## Credits
+- StackOverflow, for answering numerous of questions. 
+- W3schools, the same as above. 
+- Code institute, for providing the main CRUD idea. 
+- Code Institute Slack, great community where a lot of my questions were answered by previously asked questions.
