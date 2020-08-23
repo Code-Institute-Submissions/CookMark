@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="input-field col s3 l2">
                     <select id="recipe_yield" name="recipe_yield">
-                        <option value="" disabled selected>Yield</option>
+                        <option value="0" disabled selected>Yield</option>
                         {% for yield in yields %}
                             {% for i in range(10) %}
                                 {% if yield.yield_numbers[i] == recipe.recipe_yield %}
@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-field col s2">
                     <select id="recipe_time_hour" name="recipe_time_hour">
-                        <option value="" disabled selected>Hour</option>
+                        <option value="0" disabled selected>Hour</option>
                         {% for hour in hours %}
                             {% for i in range(11) %}
                                 {% if hour.cook_time_hour[i] == recipe.recipe_time_hour %}
@@ -45,7 +45,7 @@
                 </div>
                 <div class="input-field col s2">
                     <select id="recipe_time_min" name="recipe_time_min">
-                        <option value="" disabled selected>Min</option>
+                        <option value="0" disabled selected>Min</option>
                         {% for min in mins %}
                             {% for i in range(11) %}
                                 {% if min.cook_time_min[i] == recipe.recipe_time_min %}
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit">Edit
+                <button class="btn waves-effect waves-light blue" type="submit">Edit
                     <i class="material-icons right">playlist_add</i>
                 </button>
             </div>
