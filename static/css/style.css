@@ -83,6 +83,10 @@ textarea, option, input {
   max-height: 400px;
 }
 
+.input-field input[type=text] {
+  border-bottom: 1px solid #ffffff;
+}
+
 /*-------------------------------Utilities*/
 #addColumn {
   background-color: #85be8b;

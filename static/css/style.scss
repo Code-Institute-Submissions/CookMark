@@ -69,6 +69,9 @@ textarea, option, input {
 .get-recipe-image img{
     max-height: 400px;
 }
+.input-field input[type=text] {
+    border-bottom: 1px solid $white;
+}
 /*-------------------------------Utilities*/
 #addColumn {
     background-color: $lightgreen;
