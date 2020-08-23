@@ -7,6 +7,8 @@ internet.
 
 ## UX
 
+My target audience are users which are in need of somewhere to put all of their recipe bookmarks in one place.
+
 ### User Stories
 
 As a user...
