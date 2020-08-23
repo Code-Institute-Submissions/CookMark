@@ -17,21 +17,25 @@ app.config["MONGO_URI"] = MONGO_URI
 
 mongo = PyMongo(app)
 
+# Home page route, retrieves recipe collection from MongoDB
 @app.route('/')
 def index():
     return render_template("index.html", recipes=mongo.db.recipes.find())
 
+# Add recipe route, retrieves recipe, difficulty, yield, hour and min collections from MongoDB
 @app.route('/add_recipe')
 def add_recipe():
     return render_template("addrecipe.html", difficulties=mongo.db.difficulty.find(),
      yields=mongo.db.yields.find(), hours=mongo.db.hours.find(), mins=mongo.db.mins.find())
 
+# Inserts the added recipe to MongoDB recipe collection
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('index'))
 
+# View recipe route, retrieves a specific recipe with recipe_id from MongoDB and displays it
 @app.route('/get_recipe/<recipe_id>')
 def get_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
