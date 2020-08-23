@@ -74,5 +74,5 @@ def delete_recipe(recipe_id):
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-    port=5000,
+    port = int(os.environ.get('PORT', 5000)),
     debug=True)
