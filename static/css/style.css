@@ -73,6 +73,16 @@ textarea, option, input {
   color: #888888;
 }
 
+.card-image img {
+  max-height: 245px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.get-recipe-image img {
+  max-height: 400px;
+}
+
 /*-------------------------------Utilities*/
 #addColumn {
   background-color: #85be8b;
