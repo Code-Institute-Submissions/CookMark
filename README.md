@@ -150,7 +150,7 @@ The project was deployed on Heroku. Version control was done with Git and GitHub
 
 The project was deployed on Heroku and the CookMark Heroku app is connected to GitHub as deployment method. It was initially supposed to be deployed using the Heroku CLI push, however it didn't work for me atleast after hours of trying.
 
-Creating virtual environment:
+**Creating virtual environment:**
 - Created a directory where the flask app was supposed to be
 - Changed directory to the flask app, C:\Users\Karolina\Documents\Programming projects\cookmark
 - In the Command Prompt: `>py -m venv env, hit enter`
@@ -159,7 +159,7 @@ Creating virtual environment:
 - Created app.py in the directory
 - In the Command Prompt: `>set FLASK_APP=app.py`
 
-In Vs Code:
+**In Vs Code:**
 - Opened up app.py in VS Code and inserted "from flask import Flask" at the top of the page
 - In terminal: `$ pip freeze --local > requirements.txt`, for Heroku to be able to install the needded packages to run the app.
 - In the line below, wrote `app = Flask(__name__)`
@@ -175,20 +175,21 @@ MONGO_URI = os.environ.get('MONGO_URI')
 app.config["MONGO_DBNAME"] = MONGO_DBNAME
 app.config["MONGO_URI"] = MONGO_URI
 ```
-- 
+- Created a .gitignore file and put files which shouldn't be seen by the public, such as "env.py" in there before I pushed.
 
-GitHub: 
+**GitHub:** 
 In terminal:
 -  `$ git init`, to initialize git
 ```
 $ git remote add origin <URL_OF_GITHUB_REPO>.git
 $ git push -u origin master
 ```
+For commits and pushes, I used GitHub desktop (great program which makes git easy to handle).
 
-Mongo DB:
+**Mongo DB:**
 - Created a new collection in Cluster which was connected with the secret keys created.
 
-Heroku:
+**Heroku:**
 - Created a new app in Heroku
 - Set env variables by going to Settings -> Config Vars -> Reveal Config Vars
 - Created vars for: IP, PORT, MONGO_DBNAME, MONGO_URI
@@ -209,9 +210,7 @@ if __name__ == '__main__':
 This is to connect with the IP and PORT vars.
 - Then in Heroku Dashboard -> Deploy -> Deployment method: Github and followed the instructions. This made all of my pushes to the GitHub repo connect and build on the Heroku app.
 - Checked the Automatic deploys and after a successful build -> Open App.
-- It was then successfully deployed to Heroku.
-
-Remember, after each new installed package. 
+- It was then successfully deployed to Heroku. 
 
 #### How to run it locally
 For running the project locally, you'll needed to have Git, the Heroku CLI pre-installed and a text handling program, such as VS Code.
@@ -228,14 +227,21 @@ You'll also need to create a virtual environment, as written out in the section 
 - Type git clone, and then paste the URL you copied earlier.
 `$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 - Press Enter to create your local clone.
-- Follow the virtual env setup.
+- Follow the virtual env setup in "deployment section".
 - Create env.py
 - In env.py, write **import os** at the top.
 Then `os.environ["MONGO_DBNAME"] = 'YOUR_MONGO_DB_PROJECT_NAME'`
 and after, `os.environ["MONGO_URI"] = 'YOUR_SRV_CODE_IN_MONGO_DB'`
-In terminal: 
+- Then create a .gitignore file, where you want to put all of the secret files.
 
+In terminal: 
+- `$ pip install flask` to install the flask library
+- `$ pip freeze --local > requirements.txt` to create a requirements.txt file for app dependencies
 - `$ flask run`
+
+For Heroku Deployment and MongoDB setup, read the deployment section.
+Remember, after each newly installed package, the requirements.txt needs to be updated with:
+`$ pip freeze --local > requirements.txt` as otherwise Heroku won't have the required dependencies.
 
 ## Credits
 - StackOverflow, for answering numerous of questions. 
