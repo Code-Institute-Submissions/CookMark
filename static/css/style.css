@@ -1,15 +1,15 @@
 /*-------------------------------Sass variables*/
 :root {
-  background: white;
+  background: #ffffff;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: #ffffff;
 }
 
 /*-------------------------------Text*/
 h1, h2, h3, h4, h5 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  color: white;
+  color: #ffffff;
   text-transform: capitalize;
 }
 
@@ -18,21 +18,7 @@ h5 {
 }
 
 p, label {
-  color: white;
-}
-
-li {
-  font-family: 'Raleway', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #4B4B4B;
-  text-transform: capitalize;
-}
-
-li span {
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: #4B4B4B;
+  color: #ffffff;
 }
 
 .card .card-title {
@@ -56,12 +42,12 @@ li span {
 }
 
 #recipeUrl {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
 }
 
 textarea, option, input {
-  color: white;
+  color: #ffffff;
 }
 
 /*-------------------------------Nav*/
@@ -72,7 +58,7 @@ textarea, option, input {
 
 /*-------------------------------Materialize content*/
 .collapsible {
-  background: white;
+  background: #ffffff;
 }
 
 .btn-floating.halfway-fab {
@@ -80,7 +66,7 @@ textarea, option, input {
 }
 
 .input-field > label {
-  color: white;
+  color: #ffffff;
 }
 
 .card-content, .card-content p {
@@ -91,7 +77,7 @@ textarea, option, input {
 #addColumn {
   background-color: #85be8b;
   padding-left: 2rem;
-  color: white;
+  color: #ffffff;
 }
 
 #recipeColumn {
@@ -109,17 +95,13 @@ textarea, option, input {
   background: #85be8b;
 }
 
-.cardSection .row {
-  margin-right: none;
-}
-
 .cardSection .row .col {
   padding-left: .75rem;
 }
 
 form {
   background-color: #70ac76;
-  color: white;
+  color: #ffffff;
 }
 
 .imageContainer object {
