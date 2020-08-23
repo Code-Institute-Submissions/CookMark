@@ -19,7 +19,6 @@
                             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">edit</i></a>
                         </div>
                         <div class="card-content">
-                            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
                             <span class="card-title">{{recipe.recipe_name}}</span>
                             <p>Yields: <strong>{{recipe.recipe_yield}}</strong> - Cook time: <strong>{{recipe.recipe_time_hour}} h {{recipe.recipe_time_min}} min</strong></p><br>
                             <p>Level of difficulty: <strong>{{recipe.recipe_difficulty}}</strong></p>
