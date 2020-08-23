@@ -61,6 +61,7 @@ Changes from the wireframes include:
 * Removed sorting bar in home page due to insufficient time.
 * Included the card view in the viewing recipe page, which is also used in the home page for repeating practices.
 * Photo url replaced file upload selection and recipe url was added.
+* The delete button was removed from the home page and moved to the get recipe page. It's due to less clutter on the home page and also as it's less of a chance that a user would delete their own recipe.
 
 
 #### Illustrations
@@ -111,4 +112,37 @@ HTML5, CSS3, Python 3.8.5 and JavaScript.
 
 [Flask](https://flask.palletsprojects.com/en/1.1.x/) was the micro framework used with Python.
 Jinja was used as a template language, which reduced a lot of code as a base template was designed and the other templates were extended from the base.
+
+### Libraries
+
+JQuery was used for JavaScript.
+
+### Style Sheet
+
+Sass was used to reduce the code and workload with the help of variables and built-in optimization for other browsers. An extention in Visual Studio Code was needed.
+
+## Testing
+
+The initial thought was to implement some Jasmine testing, however time constraints made me not continue with Jasmine and I therefore used other testing resources. 
+
+### General testing
+For general code testing, I've used several testing apps.
+
+- [Html validator](https://www.freeformatter.com/html-validator.html), no bugs were found. However, responded with a lot of errors as Jinja was used.
+- Css testing:[Jigsaw](https://jigsaw.w3.org/css-validator/validator), no bugs were found. [CssLint](http://csslint.net/), got errors "heading should only be defined once" and "Disallow IDs in selectors". I found these notifications to be alright and does not majorly disrupt the code.
+- [Responsiveness testing](https://www.responsinator.com/?url=https%3A%2F%2Fcook-mark.herokuapp.com%2F), works on desktop, tablet and mobile.
+- Using Debug in python code.
+
+### Testing combined with user stories
+
+As a user...
+1. "Be able to go back to the home page." - Works by clicking the navbar, both in mobile and desktop view. The logo can also take you back to the home page.
+2. "I want to be able to add my own recipes with almost no restrictions." - The Create (Add) function works and inserts the new info into MongoDB without any issues. Almost no restrictions means that not all form inputs are required, which they aren't.
+3. "If I'm completely unhappy, I need to remove the information I've added previously." - The Delete function works and is placed in the get recipe page. Deletes the recipe record from MongoDB.
+4. "I need to be able to update my recipe with notes for instance." - The Edit function works and updates the data in MongoDB.
+5. "Responsive design is appriciated, as I can then use my phone, tablet or desktop for the app without any "friction"." - The responsive design was tested with [responsinator](https://www.responsinator.com/?url=https%3A%2F%2Fcook-mark.herokuapp.com%2F).
+
+## Deployment
+
+The project was deployed on Heroku. Version control was done with Git and GitHub pages.
 
