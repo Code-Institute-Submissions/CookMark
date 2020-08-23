@@ -101,6 +101,10 @@ letter-spacing due to the letters molding into each other a bit.
 ## Technologies Used
 
 The project was made in Visual Studio Code, where a virtual environment was set up.
+The database used was MongoDB, which is a document oriented database. The structure of data was put into:
+- main 
+-- recipe collection (main collection)
+-- other collections (which were all called and used for inserting data into recipe collection)
 
 ### Languages
 
