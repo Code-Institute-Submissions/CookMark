@@ -1,36 +1,25 @@
 /*-------------------------------Sass variables*/
 $lightgreen: #85be8b;
 $darkgreen: #70ac76;
-$primary-color: white;
+$white: #ffffff;
+$gray: #888888;
 :root {
-    background: white;
+    background: $white;
     font-family: 'Roboto', sans-serif;
-    color: $primary-color;
+    color: $white;
 }
 /*-------------------------------Text*/
 h1, h2, h3, h4, h5 {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    color: $primary-color;
+    color: $white;
     text-transform: capitalize;
 }
 h5 {
     letter-spacing: 0.01rem;
 }
 p, label {
-    color: $primary-color;
-}
-li {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #4B4B4B;
-    text-transform: capitalize;
-}
-li span {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #4B4B4B;
+    color: $white;
 }
 .card .card-title {
     text-transform: capitalize;
@@ -44,16 +33,16 @@ li span {
     padding: 0 2rem;
 }
 .centerHeader p {
-    color: #888888;
+    color: $gray;
     padding: 0 2rem;
     font-weight: 700;
 }
 #recipeUrl {
-    color: $primary-color;
+    color: $white;
     text-decoration: none;
 }
 textarea, option, input {
-    color: $primary-color;
+    color: $white;
 }
 /*-------------------------------Nav*/
 .nav-wrapper {
@@ -62,13 +51,13 @@ textarea, option, input {
 }
 /*-------------------------------Materialize content*/
 .collapsible {
-    background: $primary-color;
+    background: $white;
 }
 .btn-floating.halfway-fab {
     bottom: 10px;
 }
 .input-field > label {
-    color: $primary-color;
+    color: $white;
 }
 .card-content, .card-content p {
     color: #888888;
@@ -77,7 +66,7 @@ textarea, option, input {
 #addColumn {
     background-color: $lightgreen;
     padding-left: 2rem;
-    color: $primary-color;
+    color: $white;
 }
 #recipeColumn {
     background-color: $lightgreen;
@@ -99,7 +88,7 @@ textarea, option, input {
 }
 form {
     background-color: $darkgreen;
-    color: white;
+    color: $white;
 }
 .imageContainer object {
     padding: 0 2rem;
