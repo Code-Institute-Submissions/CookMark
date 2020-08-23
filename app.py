@@ -17,6 +17,11 @@ app.config["MONGO_URI"] = MONGO_URI
 
 mongo = PyMongo(app)
 
+# Error 404 handler, returns the 404.html page
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 # Home page route, retrieves recipe collection from MongoDB
 @app.route('/')
 def index():
