@@ -87,10 +87,10 @@ Was used
 * #888888 or $gray: For the cards, a soft gray was used for the text, as it 
 
 Materialize colours:
-* Materialize Teal, used for form:active and buttons.
+* Materialize Teal, used for form:active.
 * Materialize Red, used for delete button and incorrect form input if required input.
 * Materialize Green, used for valid form input.
-* Materialize Blue, Used for edit, changed it into blue, as blue represents security and therefore suggests "it¨'s safe to change the document".
+* Materialize Blue, Used for edit and add buttons, as blue represents security and therefore suggests "it's safe to change the document".
 
 #### Fonts
 
@@ -128,8 +128,8 @@ The initial thought was to implement some Jasmine testing, however time constrai
 ### General testing
 For general code testing, I've used several testing apps.
 
-- [Html validator](https://www.freeformatter.com/html-validator.html), no bugs were found. However, responded with a lot of errors as Jinja was used.
-- Css testing:[Jigsaw](https://jigsaw.w3.org/css-validator/validator), no bugs were found. [CssLint](http://csslint.net/), got errors "heading should only be defined once" and "Disallow IDs in selectors". I found these notifications to be alright and does not majorly disrupt the code.
+- Html testing: [Html validator](https://www.freeformatter.com/html-validator.html), no bugs were found. However, responded with a lot of errors as Jinja was used.
+- Css testing: [Jigsaw](https://jigsaw.w3.org/css-validator/validator), no bugs were found. [CssLint](http://csslint.net/), got errors "heading should only be defined once" and "Disallow IDs in selectors". I found these notifications to be alright and does not majorly disrupt the code.
 - [Responsiveness testing](https://www.responsinator.com/?url=https%3A%2F%2Fcook-mark.herokuapp.com%2F), works on desktop, tablet and mobile.
 - Using Debug in python code.
 
@@ -151,40 +151,91 @@ The project was deployed on Heroku. Version control was done with Git and GitHub
 The project was deployed on Heroku and the CookMark Heroku app is connected to GitHub as deployment method. It was initially supposed to be deployed using the Heroku CLI push, however it didn't work for me atleast after hours of trying.
 
 Creating virtual environment:
-1. Created a directory where the flask app was supposed to be
-2. Changed directory to the flask app, C:\Users\Karolina\Documents\Programming projects\cookmark
-3. In the Command Prompt: `>py -m venv env, hit enter`
-4. Then: >env\Scripts\activate, hit enter
-5. Installed flask by: `>pip install flask`
-6. Created app.py in the directory
-7. In the Command Prompt: `>set FLASK_APP=app.py`
-In Vs Code:
-8. Opened up app.py in VS Code and wrote "from flask import Flask" at the top of the page
-9. In the line below, wrote `app = Flask(__name__)`
-10. Created an app route
-11. 
+- Created a directory where the flask app was supposed to be
+- Changed directory to the flask app, C:\Users\Karolina\Documents\Programming projects\cookmark
+- In the Command Prompt: `>py -m venv env, hit enter`
+- Then: >env\Scripts\activate, hit enter
+- Installed flask by: `>pip install flask`
+- Created app.py in the directory
+- In the Command Prompt: `>set FLASK_APP=app.py`
 
-#### Locally
-For running the project locally, you'll needed to have Git, the Heroku CLI pre-installed and a text handling program such as VS Code.
+In Vs Code:
+- Opened up app.py in VS Code and inserted "from flask import Flask" at the top of the page
+- In terminal: `$ pip freeze --local > requirements.txt`, for Heroku to be able to install the needded packages to run the app.
+- In the line below, wrote `app = Flask(__name__)`
+- Created an app route
+- Created env.py and wrote **import os** at top
+- Then `os.environ["MONGO_DBNAME"] = 'YOUR_MONGO_DB_PROJECT_NAME'`
+and after, `os.environ["MONGO_URI"] = 'YOUR_SRV_CODE_IN_MONGO_DB'`
+- In app.py put:
+```
+MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
+MONGO_URI = os.environ.get('MONGO_URI')
+
+app.config["MONGO_DBNAME"] = MONGO_DBNAME
+app.config["MONGO_URI"] = MONGO_URI
+```
+- 
+
+GitHub: 
+In terminal:
+-  `$ git init`, to initialize git
+```
+$ git remote add origin <URL_OF_GITHUB_REPO>.git
+$ git push -u origin master
+```
+
+Mongo DB:
+- Created a new collection in Cluster which was connected with the secret keys created.
+
+Heroku:
+- Created a new app in Heroku
+- Set env variables by going to Settings -> Config Vars -> Reveal Config Vars
+- Created vars for: IP, PORT, MONGO_DBNAME, MONGO_URI
+In terminal: 
+- `$ heroku login` where I put in my heroku info
+- `$ git init` to initialize git repo
+- `$ heroku git:remote -a <NAME_OF_APP>` to connect app with heroku, gives link
+(The next steps would be commit and push messages, however they didn't work for me so I had to deploy and commit from my GitHub repo)
+- `$ touch Procfile`, creates Procfile (IMPORTANT NOTE: many are experiencing issues with Windows 10 and the Procfile. Therefore, create a new Procfile.txt and save, delete the one just created and rename the Procfile.txt -> Procfile. Seems redundant, but solved my "Can't find Procfile" issue. [More info](https://stackoverflow.com/questions/15790691/procfile-not-found-heroku-python-app))
+- Wrote `web python app.py` at the top of the Procfile
+- In app.py, wrote at the bottom of the python file:
+```
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+    port = int(os.environ.get('PORT', 5000)),
+    debug=True)
+```
+This is to connect with the IP and PORT vars.
+- Then in Heroku Dashboard -> Deploy -> Deployment method: Github and followed the instructions. This made all of my pushes to the GitHub repo connect and build on the Heroku app.
+- Checked the Automatic deploys and after a successful build -> Open App.
+- It was then successfully deployed to Heroku.
+
+Remember, after each new installed package. 
+
+#### How to run it locally
+For running the project locally, you'll needed to have Git, the Heroku CLI pre-installed and a text handling program, such as VS Code.
 
 For windows:
 [Cloning a repository using the command line](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 You'll also need to create a virtual environment, as written out in the section above.
 
-1. On GitHub, navigate to the main page of the repository.
-2. Above the list of files, click (download symbol) Code.
-3. To clone the repository using HTTPS, under "Clone with HTTPS", click (copy symbol). To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click (copy symbol).
-4. Open Git Bash.
-5. Change the current working directory to the location where you want the cloned directory.
-6. Type git clone, and then paste the URL you copied earlier.
+- On GitHub, navigate to the main page of the repository.
+- Above the list of files, click (download symbol) Code.
+- To clone the repository using HTTPS, under "Clone with HTTPS", click (copy symbol). To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click (copy symbol).
+- Open Git Bash.
+- Change the current working directory to the location where you want the cloned directory.
+- Type git clone, and then paste the URL you copied earlier.
 `$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
-7. Press Enter to create your local clone.
-8. Follow the virtual env setup.
-9. Create env.py
-10. In env.py, write **import os** at the top.
-Then os.environ["MONGO_DBNAME"] = 'YOUR_MONGO_DB_PROJECT_NAME'
-and after, os.environ["MONGO_URI"] = 'YOUR_SRV_CODE_IN_MONGO_DB'
-11. In the terminal, `flask run`
+- Press Enter to create your local clone.
+- Follow the virtual env setup.
+- Create env.py
+- In env.py, write **import os** at the top.
+Then `os.environ["MONGO_DBNAME"] = 'YOUR_MONGO_DB_PROJECT_NAME'`
+and after, `os.environ["MONGO_URI"] = 'YOUR_SRV_CODE_IN_MONGO_DB'`
+In terminal: 
+
+- `$ flask run`
 
 ## Credits
 - StackOverflow, for answering numerous of questions. 
