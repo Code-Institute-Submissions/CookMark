@@ -1,6 +1,6 @@
 import os
 import ssl
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+# Most app routes are inspired from Code Institutes Mini Project Tutorial
 # Home page route, retrieves recipe collection from MongoDB
 @app.route('/')
 def index():
